@@ -1,0 +1,43 @@
+{
+  "name": "project",
+  "version": "1.0.0",
+  "description": "- Babel is handling typescript conversion - [Info](https://iamturns.com/typescript-babel/)     - it strips out typescript info for speed     - separate typescript task to check type - Since all files are now ts, need to add resolve to webpack - using babel-jest for Jest setup, and also needed to moduleFileExtensions for .ts - had to add test env to babel to convert to ES5 since node doesn't support imports     - seems like we could solve this somehow with a babel plugin",
+  "main": "index.js",
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/jest": "^24.0.11",
+    "@types/oauth": "^0.9.1",
+    "@typescript-eslint/eslint-plugin": "^1.5.0",
+    "@typescript-eslint/parser": "^1.5.0",
+    "babel-jest": "^24.6.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "eslint": "^5.15.3",
+    "eslint-config-prettier": "^4.1.0",
+    "jest": "^24.6.0",
+    "prettier": "^1.16.4",
+    "typescript": "^3.3.4000",
+    "uglifyjs-webpack-plugin": "^2.1.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "rxjs": "6.3.3",
+    "rxjs-compat": "6.3.3"
+  },
+  "scripts": {
+    "type-check": "tsc --p config --noEmit",
+    "build:node": "babel ./src --out-dir lib --extensions .ts --source-maps",
+    "test": "NODE_ENV=test npm run build:node && jest --config ./config/jest.config.js",
+    "build": "webpack --config ./config/webpack.config.js"
+  },
+  "author": "Dane King",
+  "license": "ISC"
+}
