@@ -30,7 +30,7 @@
     "webpack-cli": "^3.3.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "rxjs": "6.3.3",
     "rxjs-compat": "6.3.3"
   },
